@@ -31,8 +31,8 @@ public class BillingServiceApplication {
 			Bill bill=new Bill();
 			bill.setBillingDate(new Date());
 			Customer customer=customerService.findCustomerById(1L);
-			System.out.println(customer.getName());
-			bill.setCustomerID(1L);
+
+			bill.setCustomerID(customer.getId());
 			billRepository.save(bill);
 			inventoryService.findAllProducts().getContent().forEach(p-> {
 				productItemRepository.save(new ProductItem(null, p, p.getId(), p.getPrice(), (int)(1+Math.random()*100), bill));
