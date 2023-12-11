@@ -32,7 +32,9 @@ public class BillRestController {
         bill.setProductItems(productItemRepository.findByBillId(id));
         bill.getProductItems().forEach(pi -> {
             pi.setProduct(inventoryService.findProductById(pi.getProductID()));
+            
         });
+        
         return bill;
 
     }

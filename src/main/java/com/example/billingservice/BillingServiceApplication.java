@@ -31,6 +31,7 @@ public class BillingServiceApplication {
 			Bill bill=new Bill();
 			bill.setBillingDate(new Date());
 			Customer customer=customerService.findCustomerById(1L);
+			System.out.println(customer.getId());
 			bill.setCustomerID(customer.getId());
 			billRepository.save(bill);
 			inventoryService.findAllProducts().getContent().forEach(p-> {
